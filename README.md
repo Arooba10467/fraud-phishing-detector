@@ -1,5 +1,7 @@
 # SMS/WhatsApp Fraud & Phishing Detector
 
+![App Screenshot](ss01.png)
+
 AI-augmented fraud/phishing message detector for Pakistan. Paste a suspicious
 SMS/WhatsApp message and get a risk score combining rule-based security checks
 (typosquatting, WHOIS domain age, SSL validity, URL structure) with LLM-based
