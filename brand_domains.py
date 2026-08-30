@@ -19,6 +19,11 @@ KNOWN_BRAND_DOMAINS = [
     "faysalbank.com",
     "sindhbankltd.com",
     "nbp.com.pk",
+    "bankislami.com.pk",
+    "jsbl.com",
+    "soneribank.com",
+    "silkbank.com.pk",
+    "hmb.com.pk",
     # Telecoms
     "jazz.com.pk",
     "zong.com.pk",
@@ -29,4 +34,19 @@ KNOWN_BRAND_DOMAINS = [
     "pta.gov.pk",
     "fbr.gov.pk",
     "nadra.gov.pk",
+    "punjab.gov.pk",
+       # Courier / delivery (frequently spoofed in "package" scams)
+    "pakpost.gov.pk",
+    "tcsexpress.com",
+    "leopardscourier.com",
+    "mnp.com.pk",
+    "callcourier.com.pk",
+    "dhl.com",
+    # E-commerce
+    "daraz.pk",
+    "olx.com.pk",
+    "foodpanda.pk",
+    # Airlines (common prize/ticket scam targets)
+    "piac.com.pk",
+    "airsial.com",
 ]
