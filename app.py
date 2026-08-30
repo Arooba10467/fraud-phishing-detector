@@ -56,16 +56,49 @@ st.caption(
     "definitive verdict — always verify independently before acting."
 )
 
+EXAMPLE_MESSAGES = {
+    "🚨 Example: Bank scam": (
+        "Dear customer, your JazzCash account will be BLOCKED in 24 hours due to "
+        "incomplete KYC. Update immediately: http://jazzcash-kyc-update.com",
+        "JazzCash",
+    ),
+    "🚨 Example: Roman Urdu scam": (
+        "PakPost: Aap ka parcel address ghalat hai. Update na kiya to wapis bhej diya "
+        "jaye ga: https://qrco.de/bf56c0",
+        "PakPost",
+    ),
+    "✅ Example: Legitimate message": (
+        "Your OTP for JazzCash transaction is 483920. Do not share this code with "
+        "anyone. Valid for 5 minutes.",
+        "JazzCash",
+    ),
+}
+
+if "message_input" not in st.session_state:
+    st.session_state["message_input"] = ""
+if "org_input" not in st.session_state:
+    st.session_state["org_input"] = ""
+
+st.caption("Try an example, or paste your own message below:")
+example_cols = st.columns(len(EXAMPLE_MESSAGES))
+for col, (label, (msg, org)) in zip(example_cols, EXAMPLE_MESSAGES.items()):
+    if col.button(label, use_container_width=True):
+        st.session_state["message_input"] = msg
+        st.session_state["org_input"] = org
+        st.rerun()
+        
 message_text = st.text_area(
     "Paste the suspicious message here",
     height=150,
     placeholder="e.g. Dear customer aap ka JazzCash account 24 hours main block ho jaye ga. "
                 "Verify karnay k liye is link per click karein: http://jazzcash-verify-pk.com",
+    key="message_input",
 )
 
 impersonated_org = st.text_input(
     "Which organization does it claim to be from? (optional)",
     placeholder="e.g. JazzCash, HBL, PTA",
+    key="org_input",
 )
 
 analyze_clicked = st.button("Analyze Message", type="primary")
@@ -154,4 +187,6 @@ st.caption(
     "⚠️ This tool provides automated risk screening only and is not a substitute "
     "for official verification. If in doubt, contact your bank/telecom directly "
     "using the number on your card or official website — never a number from the message."
+    "Made by Arooba Internee at The ARZENS"
+
 )
